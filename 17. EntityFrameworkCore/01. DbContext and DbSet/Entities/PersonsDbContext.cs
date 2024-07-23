@@ -9,9 +9,16 @@ namespace Entities
     public DbSet<Country> Countries { get; set; }
     public DbSet<Person> Persons { get; set; }
 
+    public PersonsDbContext(DbContextOptions<PersonsDbContext> dbContextOptions) : base(dbContextOptions)
+    {
+      
+    }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
       base.OnModelCreating(modelBuilder);
+
+      
 
       modelBuilder.Entity<Country>().ToTable("Countries");
       modelBuilder.Entity<Person>().ToTable("Persons");
